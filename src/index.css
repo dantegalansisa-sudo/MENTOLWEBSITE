@@ -1,0 +1,219 @@
+:root {
+  /* Slate base — del template Okaso */
+  --color-bg:           #1E2530;
+  --color-bg-surface:   #252D3A;
+  --color-bg-elevated:  #2E3848;
+  --color-bg-light:     #F5F5F0;
+
+  /* Verde Mentol — del logo */
+  --color-green:        #00C853;
+  --color-green-dark:   #00A040;
+  --color-green-glow:   rgba(0, 200, 83, 0.15);
+
+  /* Naranja acento — precio/energía */
+  --color-orange:       #FF6D00;
+  --color-orange-light: #FF9100;
+  --color-orange-glow:  rgba(255, 109, 0, 0.15);
+
+  /* Gradientes */
+  --gradient-green:     linear-gradient(135deg, #00C853 0%, #00E676 100%);
+  --gradient-orange:    linear-gradient(135deg, #FF6D00 0%, #FF9100 100%);
+  --gradient-hero:      linear-gradient(135deg, #1E2530 0%, #2A3240 100%);
+  --gradient-card:      linear-gradient(145deg, #252D3A 0%, #2E3848 100%);
+
+  /* Texto */
+  --color-text:         #F0F4F8;
+  --color-text-secondary: #8896A8;
+  --color-text-muted:   #505A68;
+
+  /* Bordes */
+  --color-border:       rgba(255,255,255,0.07);
+  --color-border-green: rgba(0,200,83,0.25);
+
+  /* Sombras */
+  --shadow-card:        0 8px 32px rgba(0,0,0,0.3);
+  --shadow-green:       0 0 32px rgba(0,200,83,0.2);
+  --shadow-product:     0 24px 60px rgba(0,0,0,0.5);
+
+  /* RGB para cursor */
+  --color-primary-rgb:  0, 200, 83;
+
+  /* Tipografías */
+  --font-display: 'Outfit', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  /* Espaciado */
+  --section-padding:   120px 0;
+  --container-width:   1280px;
+  --container-padding: 0 56px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding:   72px 0;
+    --container-padding: 0 20px;
+  }
+}
+
+/* ========== RESET ========== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  cursor: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ========== CURSOR — Verde Mentol ========== */
+.cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--color-green);
+  pointer-events: none;
+  z-index: 99999;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-green);
+  pointer-events: none;
+  z-index: 99998;
+  opacity: 0.5;
+  transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease, border-color 0.3s ease;
+}
+
+.cursor-ring.cursor--hover {
+  width: 56px; height: 56px;
+  opacity: 1;
+  border-color: var(--color-orange);
+  background: var(--color-orange-glow);
+}
+
+/* ========== SECCIONES ========== */
+.section-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: var(--container-padding);
+}
+
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--color-green);
+  display: block;
+  margin-bottom: 16px;
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4.5vw, 60px);
+  font-weight: 700;
+  letter-spacing: -2px;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+.section-title--dark {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4.5vw, 60px);
+  font-weight: 700;
+  letter-spacing: -2px;
+  color: #1E2530;
+  margin-bottom: 16px;
+}
+
+.section-subtitle {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  max-width: 560px;
+  margin-bottom: 56px;
+  font-family: var(--font-body);
+}
+
+/* ========== BUTTONS ========== */
+.btn-primary {
+  background: var(--gradient-green);
+  color: #1E2530;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: var(--shadow-green);
+  transition: transform 0.25s ease;
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+}
+
+.btn-ghost {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.btn-ghost:hover {
+  color: var(--color-green);
+  border-bottom-color: var(--color-green);
+}
+
+/* ========== KEYFRAMES ========== */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0,200,83,0.2); }
+  50%      { box-shadow: 0 0 40px rgba(0,200,83,0.45); }
+}
+
+/* ========== MOBILE ========== */
+@media (max-width: 768px) {
+  * { cursor: auto !important; }
+  .cursor-dot, .cursor-ring { display: none; }
+}
