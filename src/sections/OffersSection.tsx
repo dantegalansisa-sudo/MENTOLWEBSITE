@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
@@ -58,7 +59,43 @@ const offers = [
   },
 ];
 
+function useCountdown() {
+  const getEndOfWeek = () => {
+    const now = new Date();
+    const daysUntilSunday = 7 - now.getDay();
+    const end = new Date(now);
+    end.setDate(now.getDate() + (daysUntilSunday === 0 ? 7 : daysUntilSunday));
+    end.setHours(18, 0, 0, 0);
+    if (now > end) {
+      end.setDate(end.getDate() + 7);
+    }
+    return end;
+  };
+
+  const calcTimeLeft = () => {
+    const diff = getEndOfWeek().getTime() - Date.now();
+    if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    return {
+      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((diff / (1000 * 60)) % 60),
+      seconds: Math.floor((diff / 1000) % 60),
+    };
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calcTimeLeft);
+
+  useEffect(() => {
+    const timer = setInterval(() => setTimeLeft(calcTimeLeft()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return timeLeft;
+}
+
 export default function OffersSection() {
+  const { days, hours, minutes, seconds } = useCountdown();
+
   return (
     <section className="offers" id="ofertas">
       <div className="section-container">
@@ -73,12 +110,38 @@ export default function OffersSection() {
               Entrega el mismo día en Azua.
             </p>
           </div>
-          <MagneticButton
-            href="https://wa.me/18494731483?text=Hola%20Mentol%20Deluxe!%20Quiero%20información%20sobre%20las%20ofertas."
-            className="btn-primary offers__cta-desktop"
-          >
-            Ver Todas Las Ofertas →
-          </MagneticButton>
+          <div className="offers__right">
+            <div className="offers__countdown" aria-label="Tiempo restante de la oferta">
+              <span className="offers__countdown-label">Termina en:</span>
+              <div className="offers__countdown-timer">
+                <div className="offers__countdown-unit">
+                  <span className="offers__countdown-number">{String(days).padStart(2, '0')}</span>
+                  <span className="offers__countdown-text">Días</span>
+                </div>
+                <span className="offers__countdown-sep">:</span>
+                <div className="offers__countdown-unit">
+                  <span className="offers__countdown-number">{String(hours).padStart(2, '0')}</span>
+                  <span className="offers__countdown-text">Hrs</span>
+                </div>
+                <span className="offers__countdown-sep">:</span>
+                <div className="offers__countdown-unit">
+                  <span className="offers__countdown-number">{String(minutes).padStart(2, '0')}</span>
+                  <span className="offers__countdown-text">Min</span>
+                </div>
+                <span className="offers__countdown-sep">:</span>
+                <div className="offers__countdown-unit">
+                  <span className="offers__countdown-number">{String(seconds).padStart(2, '0')}</span>
+                  <span className="offers__countdown-text">Seg</span>
+                </div>
+              </div>
+            </div>
+            <MagneticButton
+              href="https://wa.me/18494731483?text=Hola%20Mentol%20Deluxe!%20Quiero%20información%20sobre%20las%20ofertas."
+              className="btn-primary offers__cta-desktop"
+            >
+              Ver Todas →
+            </MagneticButton>
+          </div>
         </div>
 
         <motion.div

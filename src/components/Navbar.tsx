@@ -5,18 +5,32 @@ import MagneticButton from './MagneticButton';
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+
+      const sections = ['categorias', 'ofertas', 'nosotros', 'contacto'];
+      let current = '';
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 200) {
+          current = id;
+        }
+      }
+      setActiveSection(current);
+    };
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   const links = [
-    { label: 'Inicio', href: '#' },
-    { label: 'Categorías', href: '#categorias' },
-    { label: 'Nosotros', href: '#nosotros' },
-    { label: 'Contacto', href: '#contacto' },
+    { label: 'Inicio', href: '#', id: '' },
+    { label: 'Categorías', href: '#categorias', id: 'categorias' },
+    { label: 'Ofertas', href: '#ofertas', id: 'ofertas' },
+    { label: 'Nosotros', href: '#nosotros', id: 'nosotros' },
+    { label: 'Contacto', href: '#contacto', id: 'contacto' },
   ];
 
   return (
@@ -37,7 +51,11 @@ export default function Navbar() {
         {/* Desktop links */}
         <div className="navbar__links">
           {links.map((link) => (
-            <a key={link.label} href={link.href} className="navbar__link">
+            <a
+              key={link.label}
+              href={link.href}
+              className={`navbar__link ${activeSection === link.id ? 'navbar__link--active' : ''}`}
+            >
               {link.label}
             </a>
           ))}
