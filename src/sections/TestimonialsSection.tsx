@@ -58,7 +58,7 @@ export default function TestimonialsSection() {
           Lo Que Dicen Nuestros Clientes
         </RevealText>
         <p className="section-subtitle">
-          Miles de hogares transformados con la calidad y precios de Mentol.
+          Miles de hogares transformados con la calidad y precios de Mentol Deluxe.
         </p>
 
         <motion.div

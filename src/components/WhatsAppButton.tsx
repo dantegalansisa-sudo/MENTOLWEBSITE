@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export default function WhatsAppButton() {
   const whatsappUrl =
-    'https://wa.me/18494731483?text=Hola%20Mentol!%20Me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20productos%20y%20precios.';
+    'https://wa.me/18494731483?text=Hola%20Mentol%20Deluxe!%20Me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20productos%20y%20precios.';
 
   return (
     <motion.a

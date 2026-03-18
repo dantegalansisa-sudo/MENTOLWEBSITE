@@ -19,7 +19,7 @@ export default function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `Hola Mentol! Soy ${form.nombre}. Tel: ${form.telefono}. Me interesa: ${form.producto}. ${form.mensaje}`;
+    const text = `Hola Mentol Deluxe! Soy ${form.nombre}. Tel: ${form.telefono}. Me interesa: ${form.producto}. ${form.mensaje}`;
     window.open(
       `https://wa.me/18494731483?text=${encodeURIComponent(text)}`,
       '_blank'

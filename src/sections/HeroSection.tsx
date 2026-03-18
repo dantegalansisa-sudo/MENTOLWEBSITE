@@ -99,7 +99,7 @@ export default function HeroSection() {
       >
         <motion.img
           src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=85"
-          alt="Sala moderna Mentol"
+          alt="Sala moderna Mentol Deluxe"
           className="hero__img"
           initial={{ opacity: 0, x: 80, scale: 1.05 }}
           animate={{ opacity: 1, x: 0, scale: 1 }}

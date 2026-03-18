@@ -81,7 +81,7 @@ export default function WhyUsSection() {
           <div className="whyus__content">
             <span className="section-eyebrow whyus__eyebrow">✦ Por Qué Elegirnos</span>
             <RevealText tag="h2" className="section-title--dark">
-              Por Qué Elegir Mentol
+              Por Qué Elegir Mentol Deluxe
             </RevealText>
             <p className="whyus__intro">
               Más de miles de familias en Azua y todo el país confían en nosotros

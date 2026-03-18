@@ -31,7 +31,7 @@ export default function Navbar() {
         <a href="#" className="navbar__logo">
           <span className="navbar__logo-m">M</span>
           <span className="navbar__logo-text">entol</span>
-          <span className="navbar__logo-sub">ELECTRO-MUEBLES</span>
+          <span className="navbar__logo-sub">ELECTRO MUEBLES DELUXE</span>
         </a>
 
         {/* Desktop links */}

@@ -8,7 +8,7 @@ export default function FooterSection() {
             <a href="#" className="footer__logo">
               <span className="footer__logo-m">M</span>
               <span className="footer__logo-text">entol</span>
-              <span className="footer__logo-sub">ELECTRO-MUEBLES</span>
+              <span className="footer__logo-sub">ELECTRO MUEBLES DELUXE</span>
             </a>
             <p className="footer__desc">
               Donde los precios bajos es lo primero. Tu tienda de confianza
@@ -52,7 +52,7 @@ export default function FooterSection() {
         </div>
 
         <div className="footer__bottom">
-          <p>© 2025 Mentol Electro-Muebles. Todos los derechos reservados.</p>
+          <p>© 2025 Mentol Electro muebles Deluxe. Todos los derechos reservados.</p>
           <p className="footer__credit">
             Diseñado por{' '}
             <a
