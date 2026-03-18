@@ -1421,3 +1421,270 @@
     font-size: 36px;
   }
 }
+
+/* ============================================
+   OFFERS SECTION
+   ============================================ */
+
+.offers {
+  background: var(--color-bg-surface);
+  padding: var(--section-padding);
+}
+
+.offers__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: 56px;
+}
+
+.offers__header .section-subtitle {
+  margin-bottom: 0;
+}
+
+.offers__cta-desktop {
+  flex-shrink: 0;
+}
+
+.offers__cta-mobile {
+  display: none;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.offers__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.product-card {
+  background: var(--gradient-card);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.product-card:hover {
+  border-color: var(--color-border-green);
+}
+
+.product-card__image-wrap {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.product-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-card__image {
+  transform: scale(1.06);
+}
+
+.product-card__discount {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--color-orange);
+  color: white;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.product-card__tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--gradient-green);
+  color: #1E2530;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.product-card__body {
+  padding: 20px;
+}
+
+.product-card__name {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.product-card__pricing {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.product-card__old-price {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.product-card__new-price {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--color-orange);
+}
+
+.product-card__colors {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.product-card__color {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.15);
+  transition: transform 0.2s ease;
+}
+
+.product-card__color:hover {
+  transform: scale(1.2);
+}
+
+.product-card__cta {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-green);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: inline-block;
+}
+
+.product-card__cta:hover {
+  color: var(--color-orange);
+}
+
+/* ============================================
+   CONTACT — MAP + VALIDATION
+   ============================================ */
+
+.contact__map {
+  margin-top: 28px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.contact__map iframe {
+  display: block;
+}
+
+/* Form validation */
+.contact__field--error input,
+.contact__field--error select,
+.contact__field--error textarea {
+  border-color: #EF5350 !important;
+  background: rgba(239, 83, 80, 0.05);
+}
+
+.contact__error {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: #EF5350;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.contact__optional {
+  font-weight: 400;
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
+
+.contact__success {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 200, 83, 0.1);
+  border: 1px solid var(--color-border-green);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.contact__success span {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.contact__success p {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-green);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ============================================
+   OFFERS — RESPONSIVE TABLET
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .offers__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .offers__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .offers__cta-desktop {
+    display: none;
+  }
+
+  .offers__cta-mobile {
+    display: block;
+  }
+}
+
+/* ============================================
+   OFFERS — RESPONSIVE MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .offers__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card__image-wrap {
+    height: 200px;
+  }
+
+  .contact__map {
+    margin-top: 20px;
+  }
+
+  .contact__map iframe {
+    height: 180px;
+  }
+}

@@ -5,6 +5,7 @@ import WhatsAppButton from './components/WhatsAppButton';
 import HeroSection from './sections/HeroSection';
 import TrustBarSection from './sections/TrustBarSection';
 import CategoriesSection from './sections/CategoriesSection';
+import OffersSection from './sections/OffersSection';
 import WhyUsSection from './sections/WhyUsSection';
 import StatsSection from './sections/StatsSection';
 import DeliverySection from './sections/DeliverySection';
@@ -17,14 +18,17 @@ export default function App() {
     <>
       <CustomCursor />
       <Navbar />
-      <HeroSection />
-      <TrustBarSection />
-      <CategoriesSection />
-      <WhyUsSection />
-      <StatsSection />
-      <DeliverySection />
-      <TestimonialsSection />
-      <ContactSection />
+      <main id="main-content">
+        <HeroSection />
+        <TrustBarSection />
+        <CategoriesSection />
+        <OffersSection />
+        <WhyUsSection />
+        <StatsSection />
+        <DeliverySection />
+        <TestimonialsSection />
+        <ContactSection />
+      </main>
       <FooterSection />
       <WhatsAppButton />
     </>

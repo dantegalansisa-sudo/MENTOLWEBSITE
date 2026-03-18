@@ -41,9 +41,9 @@ const testimonials = [
 
 function Stars({ count }: { count: number }) {
   return (
-    <div className="testimonial__stars">
+    <div className="testimonial__stars" role="img" aria-label={`${count} de 5 estrellas`}>
       {Array.from({ length: count }, (_, i) => (
-        <span key={i} className="testimonial__star">★</span>
+        <span key={i} className="testimonial__star" aria-hidden="true">★</span>
       ))}
     </div>
   );
@@ -78,7 +78,7 @@ export default function TestimonialsSection() {
               <Stars count={t.rating} />
               <p className="testimonial__text">"{t.text}"</p>
               <div className="testimonial__author">
-                <div className="testimonial__avatar">
+                <div className="testimonial__avatar" aria-hidden="true">
                   {t.name.charAt(0)}
                 </div>
                 <div>

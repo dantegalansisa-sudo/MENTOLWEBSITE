@@ -1,0 +1,17 @@
+{
+  "name": "Mentol Electro muebles Deluxe",
+  "short_name": "Mentol Deluxe",
+  "description": "Muebles y electrodomésticos en Azua, RD. Donde los precios bajos es lo primero.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1E2530",
+  "theme_color": "#1E2530",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

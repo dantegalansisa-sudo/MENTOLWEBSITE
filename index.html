@@ -2,15 +2,94 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mentol Electro muebles Deluxe | Azua, República Dominicana</title>
     <meta name="description" content="Mentol Electro muebles Deluxe en Azua, RD. Muebles, salas, cuartos, comedores y electrodomésticos. Donde los precios bajos es lo primero. Entrega mismo día. Transporte a todo el país. (849) 473-1483." />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Mentol Electro muebles Deluxe | Muebles & Electrodomésticos en Azua" />
+    <meta property="og:description" content="Donde los precios bajos es lo primero. Muebles, salas, cuartos, comedores y electrodomésticos con entrega el mismo día. Transporte a todo el país." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=85" />
+    <meta property="og:url" content="https://mentoldeluxe.com" />
+    <meta property="og:locale" content="es_DO" />
+    <meta property="og:site_name" content="Mentol Electro muebles Deluxe" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mentol Electro muebles Deluxe | Azua, RD" />
+    <meta name="twitter:description" content="Donde los precios bajos es lo primero. Muebles y electrodomésticos con entrega mismo día." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=85" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://mentoldeluxe.com" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#1E2530" />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Preload hero image -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=85" />
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FurnitureStore",
+      "name": "Mentol Electro muebles Deluxe",
+      "description": "Tienda de muebles y electrodomésticos en Azua, República Dominicana. Donde los precios bajos es lo primero.",
+      "url": "https://mentoldeluxe.com",
+      "telephone": "+1-849-473-1483",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle Emilio Prudom esq. 30 de Marzo",
+        "addressLocality": "Azua",
+        "postalCode": "71000",
+        "addressCountry": "DO"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "priceRange": "$$",
+      "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=85",
+      "sameAs": [
+        "https://www.instagram.com/mentolelectromueblesazua"
+      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "República Dominicana"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Muebles y Electrodomésticos",
+        "itemListElement": [
+          {"@type": "OfferCatalog", "name": "Salas & Sofás"},
+          {"@type": "OfferCatalog", "name": "Cuartos & Camas"},
+          {"@type": "OfferCatalog", "name": "Comedores"},
+          {"@type": "OfferCatalog", "name": "Electrodomésticos"},
+          {"@type": "OfferCatalog", "name": "Oficinas"},
+          {"@type": "OfferCatalog", "name": "Decoración"}
+        ]
+      }
+    }
+    </script>
   </head>
   <body>
+    <a href="#main-content" class="skip-to-content">Ir al contenido principal</a>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
