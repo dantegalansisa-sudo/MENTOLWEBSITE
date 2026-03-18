@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import MagneticButton from './MagneticButton';
+import { useQuote } from '../context/QuoteContext';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const { totalItems, togglePanel } = useQuote();
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 40);
 
-      const sections = ['categorias', 'ofertas', 'nosotros', 'contacto'];
+      const sections = ['categorias', 'ofertas', 'catalogo', 'nosotros', 'contacto'];
       let current = '';
       for (const id of sections) {
         const el = document.getElementById(id);
@@ -29,7 +31,7 @@ export default function Navbar() {
     { label: 'Inicio', href: '#', id: '' },
     { label: 'Categorías', href: '#categorias', id: 'categorias' },
     { label: 'Ofertas', href: '#ofertas', id: 'ofertas' },
-    { label: 'Nosotros', href: '#nosotros', id: 'nosotros' },
+    { label: 'Catálogo', href: '#catalogo', id: 'catalogo' },
     { label: 'Contacto', href: '#contacto', id: 'contacto' },
   ];
 
@@ -61,26 +63,62 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* CTA */}
+        {/* Actions */}
         <div className="navbar__actions">
+          <button
+            className="navbar__cart-btn"
+            onClick={togglePanel}
+            aria-label={`Cotización: ${totalItems} productos`}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" />
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+            </svg>
+            {totalItems > 0 && (
+              <motion.span
+                className="navbar__cart-badge"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                key={totalItems}
+              >
+                {totalItems}
+              </motion.span>
+            )}
+          </button>
           <MagneticButton
             href="https://wa.me/18494731483"
             className="btn-primary navbar__cta"
           >
-            Pedir Cotización
+            Cotizar
           </MagneticButton>
         </div>
 
         {/* Mobile hamburger */}
-        <button
-          className={`navbar__hamburger ${menuOpen ? 'navbar__hamburger--open' : ''}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Menú"
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+        <div className="navbar__mobile-actions">
+          <button
+            className="navbar__cart-btn"
+            onClick={togglePanel}
+            aria-label={`Cotización: ${totalItems} productos`}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" />
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+            </svg>
+            {totalItems > 0 && (
+              <span className="navbar__cart-badge">{totalItems}</span>
+            )}
+          </button>
+          <button
+            className={`navbar__hamburger ${menuOpen ? 'navbar__hamburger--open' : ''}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Menú"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
